@@ -17,30 +17,30 @@ const addTwoNumbers = function(l1, l2) {
 
     // Return the constructed array
     return returnedArray;
-}
+  }
 
-// Convert the ListNodes to Arrays
-const l1Array = ConvertReverseListNodeToArray(l1);
-const l2Array = ConvertReverseListNodeToArray(l2);
+  // Convert the ListNodes to Arrays
+  const l1Array = ConvertReverseListNodeToArray(l1);
+  const l2Array = ConvertReverseListNodeToArray(l2);
 
-// Add the numbers (after merging them), using BigInt due to LeetCode's edge cases
-let newTotal = BigInt(l1Array.join('')) + BigInt(l2Array.join(''));
+  // Add the numbers (after merging them), using BigInt due to LeetCode's edge cases
+  let newTotal = BigInt(l1Array.join('')) + BigInt(l2Array.join(''));
 
-// Split the total back into an array
-splitNewTotal = newTotal.toString().split('');
+  // Split the total back into an array
+  splitNewTotal = newTotal.toString().split('');
 
-// Initialise an empty ListNode
-let returnedListNode = null;
+  // Initialise an empty ListNode
+  let returnedListNode = null;
 
-// Loop through the total value's array
-for (let i = 0; i < splitNewTotal.length; i++) {
-    // Add this digit to the ListNode
-    returnedListNode = {
-        val: splitNewTotal[i],
-        next: returnedListNode,
-    };
-}
+  // Loop through the total value's array
+  for (let i = 0; i < splitNewTotal.length; i++) {
+      // Add this digit to the ListNode
+      returnedListNode = {
+          val: splitNewTotal[i],
+          next: returnedListNode,
+      };
+  }
 
-// Return the constructed ListNode
-return returnedListNode;
+  // Return the constructed ListNode
+  return returnedListNode;
 }
