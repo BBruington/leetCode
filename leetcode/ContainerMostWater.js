@@ -9,6 +9,7 @@ const maxArea = function(height) {
     //to the new anser if it's higher
      answer = Math.max(answer, Math.min(height[i], height[j]) * (j - i))
      //iterate every possible cup container to find which height is the solution (highest)
+     //moving ONLY the index that is lower than the other, if both are the same height, just move index i
      height[i] <= height[j] ? i++ : j--
  }
  //after going through every possible container and finding the greatest area, return that as the answer
