@@ -29,6 +29,8 @@ const searchRange = function(nums, target) {
  i = 0;
  j = nums.length - 1;
 
+ //do the same as the upper while loop except find the 
+ //rightmost instance of target and set it to rightindex
  while(i <= j){
      mid = ~~(i + (j - i) / 2);
 
@@ -37,8 +39,6 @@ const searchRange = function(nums, target) {
      } else if (nums[mid] < target){
          i = mid + 1;
 
-        //do the same as the upper while loop except find the 
-        //rightmost instance of target and set it to rightindex
      } else {
          rightIndex = mid;
          i = mid + 1;
