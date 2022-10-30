@@ -6,7 +6,7 @@ var longestCommonPrefix = function(strs) {
         for (let j = 0; j < strs.length; j++) {
             if(strs[j][i] !== character) return prefix
         }
-        prefix = prefix + character
+        prefix += character
     }
     return prefix
 };
