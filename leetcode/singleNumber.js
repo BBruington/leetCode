@@ -1,11 +1,3 @@
-const singleNumberCar = function(nums) {
-  res = 0;
-  for(let num of nums){
-      res^=num
-  }
-  return res;
-};
-
 const singleNumber = function(nums) {
   let twos = [];
   let twosTest = [];
@@ -21,4 +13,12 @@ const singleNumber = function(nums) {
       }
   }
   return [];
+};
+
+const singleNumberToo = function(nums) {
+  res = 0;
+  for(let num of nums){
+      res^=num
+  }
+  return res;
 };

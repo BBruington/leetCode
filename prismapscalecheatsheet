@@ -1,0 +1,8 @@
+//execute prisma
+//npx prisma db push
+
+//To verify that your database is in sync with your schema, as well as run any SQL commands, run: 
+//pscale shell prisma-playground main
+
+//promote your branch to production: 
+//pscale branch promote YOUR-DB-NAME-HERE main
