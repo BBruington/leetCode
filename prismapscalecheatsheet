@@ -6,3 +6,10 @@
 
 //promote your branch to production: 
 //pscale branch promote YOUR-DB-NAME-HERE main
+
+//create db in dev mode
+//npx prisma migrate dev
+
+//npx prisma generate
+
+//npx prisma migrate dev --schema=./libs/prisma-client/prisma/schema.prisma
