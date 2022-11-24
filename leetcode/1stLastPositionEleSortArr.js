@@ -1,7 +1,7 @@
 const searchRange = function(nums, target) {
   // initialize the variable to find first / last index of target
   let i = 0, j = nums.length - 1, mid;
- let leftIndex = -1, rightIndex = -1;
+ let leftIndex = -1, rightIndex = -1; 
 
 
  while(i <= j){
