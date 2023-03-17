@@ -6,9 +6,9 @@
 // The functions get and put must each run in O(1) average time complexity.
 
 
-var LRUCache = function(capacity) {
-    this.map = new Map()
+const LRUCache = function(capacity) {
     this.capacity = capacity
+    this.map = new Map()
 };
 
 
@@ -22,11 +22,14 @@ LRUCache.prototype.get = function(key) {
 };
 
 LRUCache.prototype.put = function(key, value) {
+  const prevVal = this.get(key);
+  if(prevVal === -1) {
     if(this.map.size === this.capacity) {
-      for ( let [key] of this.map) {
-        this.map.delete(key)
+      for ( let [firstKey] of this.map) {
+        this.map.delete(firstKey)
         break;
       }
     }
-    this.map.set(key, value)
+  }
+  this.map.set(key, value)
 };
