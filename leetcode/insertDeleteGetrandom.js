@@ -8,7 +8,8 @@
 // You must implement the functions of the class such that each function works in average O(1) time complexity.
 
 var RandomizedSet = function() {
-    
+    this.map = {};
+    this.arr = [];
 };
 
 /** 
@@ -16,7 +17,13 @@ var RandomizedSet = function() {
  * @return {boolean}
  */
 RandomizedSet.prototype.insert = function(val) {
-    
+    const i = this.map[val];
+    if ( i !== undefined ) {
+      return false;
+    }
+    this.arr.push(val);
+    this.map[val] = this.arr.length - 1;
+    return true;
 };
 
 /** 
@@ -24,14 +31,27 @@ RandomizedSet.prototype.insert = function(val) {
  * @return {boolean}
  */
 RandomizedSet.prototype.remove = function(val) {
-    
+  const i = this.map[val];
+  if (i !== undefined) {
+    if (i !== (this.arr.length - 1)) {
+      this.map[this.arr[this.arr.length - 1]] = i;
+      const temp = this.arr[i]
+      this.arr[i] = this.arr[this.arr.length - 1]
+      this.arr[this.arr.length -1] = temp
+    }
+    delete this.map[val]
+    this.arr.pop()
+    return true;
+  }
+  return false;
 };
 
 /**
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function() {
-    
+    let num = Math.floor(Math.random() * this.arr.length)
+    return this.arr[num]
 };
 
 /** 
