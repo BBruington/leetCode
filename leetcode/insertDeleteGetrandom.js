@@ -7,7 +7,11 @@
 // Each element must have the same probability of being returned.
 // You must implement the functions of the class such that each function works in average O(1) time complexity.
 
+//map {value: index in array}
+//array [ value, value, value]
+
 var RandomizedSet = function() {
+  //use both a map and an array to maximize insert / randomize / deletion function's efficiency
     this.map = {};
     this.arr = [];
 };
@@ -18,10 +22,17 @@ var RandomizedSet = function() {
  */
 RandomizedSet.prototype.insert = function(val) {
     const i = this.map[val];
+
+    //if value has an index in map -not undefined- 
+    //aka if it already exists
     if ( i !== undefined ) {
       return false;
     }
+
+    //add value to array 
     this.arr.push(val);
+
+    //add value to map that points to its index in the array
     this.map[val] = this.arr.length - 1;
     return true;
 };
@@ -31,18 +42,31 @@ RandomizedSet.prototype.insert = function(val) {
  * @return {boolean}
  */
 RandomizedSet.prototype.remove = function(val) {
+  //i points to the index where val is in array
   const i = this.map[val];
+  // does value exist?
   if (i !== undefined) {
+    //is the value not the last index in the array?
     if (i !== (this.arr.length - 1)) {
+
+      //point current last val in array to the index where i is in map
       this.map[this.arr[this.arr.length - 1]] = i;
+
+      //temp == val we are trying to remove
       const temp = this.arr[i]
+
+      //put value at end of arr to where val we're trying to move is
       this.arr[i] = this.arr[this.arr.length - 1]
+
+      //put value we are trying to move to the end of arr
       this.arr[this.arr.length -1] = temp
     }
+    //remove val from both map and array
     delete this.map[val]
     this.arr.pop()
     return true;
   }
+  //if val doesn't exist on the map, return false
   return false;
 };
 
@@ -50,7 +74,10 @@ RandomizedSet.prototype.remove = function(val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function() {
+  //pick a random index from array
     let num = Math.floor(Math.random() * this.arr.length)
+
+    //show the value of the randomly chosen index
     return this.arr[num]
 };
 
