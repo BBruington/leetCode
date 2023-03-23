@@ -8,18 +8,31 @@ var subarraysDivByK = function(nums, k) {
     let localSum = 0;
     for(let j=i; j < nums.length; j++) {
       localSum += nums[j];
+
+      //you can add k then % k again to account for negatives that way insead
+      //ie: (localSum % k + k) % k == 0?
       if(localSum%k==0 || localSum%k==-0) counter++;
     }
   }
   return counter;
 };
+
 var subarraysDivByK2 = function(nums, k) {
-  let globalSum = []
-  let localSum = nums[0];
-  for(let i=1; i < nums.length; i++){
-    
+  let pref = 0; 
+  let counter = 0;
+  let map = {};
+  //any outcome that doesnt %= 0 won't add to counter
+  for (let i = 0; i<k; i++) {
+    map[i] = 0;
   }
+  
+  map[0] = 1;
+
+  for( let j=0; j<nums.length; j++) {
+    pref = (pref + nums[j] % k + k ) % k;
+    counter += map[pref];
+    map[pref]++;
+  }
+
   return counter;
 };
-
-console.log(subarraysDivByK([4,5,0,-2,-3,1], 5))
