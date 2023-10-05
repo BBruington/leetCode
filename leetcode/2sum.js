@@ -21,7 +21,6 @@ var twosum = function(nums, target) {
   //iterate through the array to find possible solutions and compare them to i
   for(let i = 0; i < nums.length; i++) {
     const n = nums[i];
-
     //we subtract n from target to figure out what the possible solution is
     //if it's already stored in our hash we return the answer
     if(hash[target - n] !== undefined) {
