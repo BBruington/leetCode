@@ -17,7 +17,7 @@ function breathFirstSearch(str, left, right) {
 };
 
 //ex: n = 2
-//function breathFirstSearch("", left = 0, right = 0)
+//function breathFirstSearch(str = "", left = 0, right = 0)
 
 // left !== n? i want you to run the function again but add "(" and left +1
 
