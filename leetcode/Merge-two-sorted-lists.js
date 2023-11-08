@@ -31,6 +31,7 @@ const mergeTwoArrays = function(list1, list2) {
     }
     return solution;
 }
+
 const mergeTwoLists = function(l1, l2) {
     if (!l1) return l2;
     else if (!l2) return l1;
