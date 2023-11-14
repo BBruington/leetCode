@@ -39,36 +39,43 @@ const search = function (nums, target) {
     if (curNumber === target) {
       return index;
     } else if (curNumber < target) {
-      let movement = nums.length - index;
+      let movement = (nums.length - index) / 2;
       previousIndex = index;
-      movement /= 2;
-      if (movement === 0.5) index++;
+      if (movement === 0.5) {
+        if (nums[index + 1] === target) {
+          return index + 1;
+        } else return -1;
+      }
       if (movement === 0) return -1;
       movement = Math.floor(movement);
-      index = index + movement;
+      index += movement;
     } else if (curNumber > target) {
-      let movement = index - previousIndex;
+      let movement = (index - previousIndex) / 2;
       previousIndex = index;
-      movement /= 2;
-      if (movement === 0.5) index--;
+      if (movement === 0.5) {
+        if (nums[index + 1] === target) {
+          return index + 1;
+        } else return -1;
+      }
       if (movement === 0) return -1;
       movement = Math.floor(movement);
-      index = index - movement;
+      index -= movement;
     }
   }
 };
 
 //cleaner ver
 
-const search2 = function(nums, target) {
-  let lo = 0, hi = nums.length-1;
-  while (lo < hi) {
-      let mid = lo + Math.floor((hi-lo+1)/2);
-      if (target < nums[mid]) {
-          hi = mid - 1
-      } else {
-          lo = mid; 
-      }
+const search2 = function (nums, target) {
+  let low = 0;
+  let high = nums.length - 1;
+  while (low < high) {
+    let mid = low + Math.floor((high - low + 1) / 2);
+    if (target < nums[mid]) {
+      high = mid - 1;
+    } else {
+      low = mid;
+    }
   }
-  return nums[lo]==target?lo:-1;
+  return nums[low] == target ? low : -1;
 };
