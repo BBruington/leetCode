@@ -53,8 +53,8 @@ const search = function (nums, target) {
       let movement = (index - previousIndex) / 2;
       previousIndex = index;
       if (movement === 0.5) {
-        if (nums[index + 1] === target) {
-          return index + 1;
+        if (nums[index - 1] === target) {
+          return index - 1;
         } else return -1;
       }
       if (movement === 0) return -1;
