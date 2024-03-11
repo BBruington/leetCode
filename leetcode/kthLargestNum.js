@@ -24,13 +24,13 @@ function kthLargestNum(arr, k) {
 
   // Perform binary search on the range of elements between low and high
   while (low <= high) {
-    let mid = low + Math.floor((high - low) / 2); //4 5 4
+    let mid = low + Math.floor((high - low) / 2); 
     let count = 0;
 
     // Count the number of elements greater than mid in the array
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] > mid) {
-        count++; //2
+        count++; 
       }
     }
 
