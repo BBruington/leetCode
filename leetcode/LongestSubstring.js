@@ -55,7 +55,7 @@ const longestSubStr = (str) => {
       set.delete(str[left]);
       left++;
     }
-    set.add(s[i]);
+    set.add(str[i]);
     maxLength = Math.max(maxLength, i - left + 1);
   }
   return maxLength;
