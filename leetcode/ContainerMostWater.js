@@ -15,3 +15,13 @@ const maxArea = function(height) {
  //after going through every possible container and finding the greatest area, return that as the answer
  return answer
 };
+
+const maxArea2 = function(height) {
+  let maxHeight = 0, i = 0, j = height.length - 1
+  while (i < j) {
+      let currentHeight = Math.min(height[i], height[j])
+      maxHeight = Math.max(maxHeight, currentHeight * (j - i))
+      height[i] < height[j] ? i++ : j--
+  }
+  return maxHeight;
+};
